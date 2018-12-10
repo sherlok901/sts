@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E85041A-D8FE-452B-831E-8DEF3CFC4A17}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TSQL</RootNamespace>
+    <AssemblyName>TSQL_Parser</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\net40\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>TSQL_Parser.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\net40\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DebugSymbols>true</DebugSymbols>
+    <DocumentationFile>TSQL_Parser.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>TSQL_Parser.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clauses\Parsers\TSQLOptionClauseParser.cs" />
+    <Compile Include="Clauses\Parsers\ITSQLClauseParser.cs" />
+    <Compile Include="Clauses\Parsers\TSQLFromClauseParser.cs" />
+    <Compile Include="Clauses\Parsers\TSQLGroupByClauseParser.cs" />
+    <Compile Include="Clauses\Parsers\TSQLHavingClauseParser.cs" />
+    <Compile Include="Clauses\Parsers\TSQLIntoClauseParser.cs" />
+    <Compile Include="Clauses\Parsers\TSQLOrderByClauseParser.cs" />
+    <Compile Include="Clauses\Parsers\TSQLSelectClauseParser.cs" />
+    <Compile Include="Clauses\Parsers\TSQLWhereClauseParser.cs" />
+    <Compile Include="Clauses\TSQLClause.cs" />
+    <Compile Include="Clauses\TSQLFromClause.cs" />
+    <Compile Include="Clauses\TSQLGroupByClause.cs" />
+    <Compile Include="Clauses\TSQLHavingClause.cs" />
+    <Compile Include="Clauses\TSQLIntoClause.cs" />
+    <Compile Include="Clauses\TSQLOptionClause.cs" />
+    <Compile Include="Clauses\TSQLOrderByClause.cs" />
+    <Compile Include="Clauses\TSQLSelectClause.cs" />
+    <Compile Include="Clauses\TSQLWhereClause.cs" />
+    <Compile Include="Clauses\TSQLWithClause.cs" />
+    <Compile Include="IO\BufferedTextReader.cs" />
+    <Compile Include="IO\BufferedTextReader.IDisposable.cs">
+      <DependentUpon>BufferedTextReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IO\ICharacterReader.cs" />
+    <Compile Include="IO\TSQLCharacterReader.cs" />
+    <Compile Include="IO\TSQLCharacterReader.IDisposable.cs">
+      <DependentUpon>TSQLCharacterReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ITSQLTokenizer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Statements\Parsers\ITSQLStatementParser.cs" />
+    <Compile Include="Statements\Parsers\TSQLSelectStatementParser.cs" />
+    <Compile Include="Statements\Parsers\TSQLStatementParserFactory.cs" />
+    <Compile Include="Statements\Parsers\TSQLUnknownStatementParser.cs" />
+    <Compile Include="Statements\TSQLSelectStatement.cs" />
+    <Compile Include="Statements\TSQLStatement.cs" />
+    <Compile Include="Tokens\TSQLSystemIdentifier.cs" />
+    <Compile Include="Tokens\TSQLSystemVariable.cs" />
+    <Compile Include="Tokens\TSQLBinaryLiteral.cs" />
+    <Compile Include="Tokens\TSQLMoneyLiteral.cs" />
+    <Compile Include="TSQLIdentifiers.cs" />
+    <Compile Include="TSQLStatementReader.cs" />
+    <Compile Include="TSQLStatementReader.IDisposable.cs">
+      <DependentUpon>TSQLStatementReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TSQLStatementReader.IEnumerable.cs">
+      <DependentUpon>TSQLStatementReader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Statements\TSQLStatementType.cs" />
+    <Compile Include="Statements\TSQLUnknownStatement.cs" />
+    <Compile Include="Tokens\TSQLTokenType.cs" />
+    <Compile Include="Tokens\TSQLCharacter.cs" />
+    <Compile Include="Tokens\TSQLComment.cs" />
+    <Compile Include="Tokens\TSQLIdentifier.cs" />
+    <Compile Include="Tokens\TSQLKeyword.cs" />
+    <Compile Include="Tokens\TSQLLiteral.cs" />
+    <Compile Include="Tokens\TSQLMultilineComment.cs" />
+    <Compile Include="Tokens\TSQLNumericLiteral.cs" />
+    <Compile Include="Tokens\TSQLOperator.cs" />
+    <Compile Include="Tokens\TSQLSingleLineComment.cs" />
+    <Compile Include="Tokens\TSQLStringLiteral.cs" />
+    <Compile Include="Tokens\TSQLToken.cs" />
+    <Compile Include="Tokens\TSQLVariable.cs" />
+    <Compile Include="Tokens\TSQLWhitespace.cs" />
+    <Compile Include="TSQLCharacters.cs" />
+    <Compile Include="TSQLKeywords.cs" />
+    <Compile Include="TSQLTokenizer.cs" />
+    <Compile Include="TSQLTokenizer.IDisposable.cs">
+      <DependentUpon>TSQLTokenizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TSQLTokenizer.IEnumerable.cs">
+      <DependentUpon>TSQLTokenizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TSQLVariables.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TSQL_Parser.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

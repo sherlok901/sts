@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package>
+	<metadata>
+		<id>TSQL.Parser</id>
+		<version>1.2.4</version>
+		<title>TSQL.Parser</title>
+		<authors>Bruce Dunwiddie</authors>
+		<owners>shriop</owners>
+		<licenseUrl>https://github.com/bruce-dunwiddie/tsql-parser/blob/master/LICENSE</licenseUrl>
+		<projectUrl>https://github.com/bruce-dunwiddie/tsql-parser</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Library for Parsing SQL Server T-SQL Scripts</description>
+		<releaseNotes>Fixed small typo on naming of public member TSQLToken.BeginPosition.</releaseNotes>
+		<copyright>Copyright © 2018</copyright>
+		<tags>sql parser sql-server tsql</tags>
+	</metadata>
+	<files>
+		<file src="bin\Release\net40\TSQL_Parser.dll" target="lib\net40" />
+		<file src="bin\Release\net40\TSQL_Parser.pdb" target="lib\net40" />
+		<file src="bin\Release\net40\TSQL_Parser.xml" target="lib\net40" />
+		<file src="bin\Release\netstandard2.0\TSQL_Parser.dll" target="lib\netstandard2.0" />
+		<file src="bin\Release\netstandard2.0\TSQL_Parser.pdb" target="lib\netstandard2.0" />
+		<file src="bin\Release\netstandard2.0\TSQL_Parser.xml" target="lib\netstandard2.0" />
+		<file src="**\*.cs" target="src" />
+	</files>
+</package>
